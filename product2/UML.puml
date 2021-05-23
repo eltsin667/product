@@ -1,0 +1,169 @@
+@startuml
+class com.example.product.NewproductActivity {
+~ Button Acception
+~ Intent mainAct
+~ EditText Barcode
+~ OpenHelper Helper
+~ SQLiteDatabase db
+# void onCreate(Bundle)
++ void onClick(View)
+}
+class com.example.product.ExampleUnitTest {
++ void addition_isCorrect()
+}
+class com.example.product.BuildConfig {
++ {static} boolean DEBUG
++ {static} String APPLICATION_ID
++ {static} String BUILD_TYPE
++ {static} int VERSION_CODE
++ {static} String VERSION_NAME
+}
+class SUBD.products.ProductCategories {
+}
+class SUBD.products.ProductCategories.Products {
++ {static} String TABLE_NAME
++ {static} String _ID
++ {static} String COLUMN_BARCODE
++ {static} String COLUMN_WEIGHT
++ {static} String COLUMN_COUNTRY
++ {static} String COLUMN_KKAL
++ {static} String COLUMN_NAME
++ {static} String COLUMN_CONTENT
++ {static} int _ID_NUM
++ {static} int COLUMN_BARCODE_NUM
++ {static} int COLUMN_WEIGHT_NUM
++ {static} int COLUMN_COUNTRY_NUM
++ {static} int COLUMN_KKAL_NUM
++ {static} int COLUMN_NAME_NUM
++ {static} int COLUMN_CONTENT_NUM
+}
+class com.example.product.LoginActivity {
+~ Button loginButton
+~ UserOpenHelper user
+~ EditText Password
+~ Intent intent
+# void onCreate(Bundle)
++ void onClick(View)
+}
+class com.example.product.ExampleInstrumentedTest {
++ void useAppContext()
+}
+class SUBD.products.UserOpenHelper {
+- {static} String TABLE_NAME
+- {static} int TABLE_VERSION
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
+}
+class SUBD.products.UserOpenHelper.Users {
++ {static} String TABLE_NAME
++ {static} String _ID
++ {static} String COLUMN_LOGIN
++ {static} String COLUMN_PASSWORD
+}
+class com.example.product.SecondActivity {
+~ OpenHelper MyHelper
+~ TextView text
+~ String BARCODE
+# void onCreate(Bundle)
+- void DatabaseProducts()
+}
+class com.google.zxing.integration.android.IntentResult {
+- String contents
+- String formatName
+- byte[] rawBytes
+- Integer orientation
+- String errorCorrectionLevel
++ String getContents()
++ String getFormatName()
++ byte[] getRawBytes()
++ Integer getOrientation()
++ String getErrorCorrectionLevel()
++ String toString()
+}
+class com.example.product.MainActivity {
+~ Button scanButton
+~ Intent intent
+~ String scanContent
+# void onCreate(Bundle)
++ void onClick(View)
++ void onActivityResult(int,int,Intent)
+}
+class com.google.zxing.integration.android.IntentIntegrator {
++ {static} int REQUEST_CODE
+- {static} String TAG
++ {static} String DEFAULT_TITLE
++ {static} String DEFAULT_MESSAGE
++ {static} String DEFAULT_YES
++ {static} String DEFAULT_NO
+- {static} String BS_PACKAGE
+- {static} String BSPLUS_PACKAGE
++ {static} Collection<String> PRODUCT_CODE_TYPES
++ {static} Collection<String> ONE_D_CODE_TYPES
++ {static} Collection<String> QR_CODE_TYPES
++ {static} Collection<String> DATA_MATRIX_TYPES
++ {static} Collection<String> ALL_CODE_TYPES
++ {static} List<String> TARGET_BARCODE_SCANNER_ONLY
++ {static} List<String> TARGET_ALL_KNOWN
+- {static} int FLAG_NEW_DOC
+- Activity activity
+- Fragment fragment
+- String title
+- String message
+- String buttonYes
+- String buttonNo
+- List<String> targetApplications
+- Map<String,Object> moreExtras
+- void initializeConfiguration()
++ String getTitle()
++ void setTitle(String)
++ void setTitleByID(int)
++ String getMessage()
++ void setMessage(String)
++ void setMessageByID(int)
++ String getButtonYes()
++ void setButtonYes(String)
++ void setButtonYesByID(int)
++ String getButtonNo()
++ void setButtonNo(String)
++ void setButtonNoByID(int)
++ Collection<String> getTargetApplications()
++ void setTargetApplications(List<String>)
++ void setSingleTargetApplication(String)
++ Map<String,?> getMoreExtras()
++ void addExtra(String,Object)
++ AlertDialog initiateScan()
++ AlertDialog initiateScan(int)
++ AlertDialog initiateScan(Collection<String>)
++ AlertDialog initiateScan(Collection<String>,int)
+# void startActivityForResult(Intent,int)
+- String findTargetAppPackage(Intent)
+- {static} boolean contains(Iterable<ResolveInfo>,String)
+- AlertDialog showDownloadDialog()
++ {static} IntentResult parseActivityResult(int,int,Intent)
++ AlertDialog shareText(CharSequence)
++ AlertDialog shareText(CharSequence,CharSequence)
+- {static} List<String> list(String)
+- void attachMoreExtras(Intent)
+}
+class SUBD.products.OpenHelper {
+- {static} String TABLE_NAME
+- {static} int TABLE_VERSION
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
+}
+
+
+com.example.product.OnClickListener <|.. com.example.product.NewproductActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.product.NewproductActivity
+SUBD.products.ProductCategories +.. SUBD.products.ProductCategories.Products
+SUBD.products.BaseColumns <|.. SUBD.products.ProductCategories.Products
+com.example.product.OnClickListener <|.. com.example.product.LoginActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.product.LoginActivity
+android.database.sqlite.SQLiteOpenHelper <|-- SUBD.products.UserOpenHelper
+SUBD.products.UserOpenHelper +.. SUBD.products.UserOpenHelper.Users
+SUBD.products.BaseColumns <|.. SUBD.products.UserOpenHelper.Users
+android.support.v7.app.AppCompatActivity <|-- com.example.product.SecondActivity
+com.example.product.OnClickListener <|.. com.example.product.MainActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.product.MainActivity
+android.database.sqlite.SQLiteOpenHelper <|-- SUBD.products.OpenHelper
+@enduml

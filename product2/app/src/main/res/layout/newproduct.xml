@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009688"
+    tools:context=".NewproductActivity">
+
+    <EditText
+        android:id="@+id/country"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Страна"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/barcode"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:hint="Штрих-код"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/kkal"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Пищевая ценность(ккал/100г)"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="300dp"
+        android:layout_height="220dp"
+        android:layout_marginEnd="56dp"
+        android:hint="состав"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weight" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Название"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barcode" />
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="масса нетто(г)"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country" />
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="135dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="138dp"
+        android:text="добавить"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kkal" />
+</android.support.constraint.ConstraintLayout>
